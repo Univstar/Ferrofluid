@@ -50,9 +50,14 @@ public:
 			grid[0][j] = phiLeft;
 		for (int j = 1; j <= yGrids; j++)
 			grid[xGrids + 1][j] = phiRight;
-		for (int i = 0; i <= xGrids; i++)
-			for (int j = 0; j <= yGrids; j++)
-				lineH[i][j] = lineV[i][j] = 1;
+	}
+
+	void Solve(Float eps)
+	{
+		do
+		{
+			UpdateMu();
+		} while (SolvePhi() > eps);
 	}
 };
 
