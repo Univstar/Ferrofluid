@@ -23,8 +23,8 @@ protected:
 	vector<Triplet<Float>> coeff;
 
 	SparseMatrix<Float> A;
-	Matrix<Float, xGrids * yGrids, 1> b;
-	Matrix<Float, xGrids * yGrids, 1> x;
+	Matrix<Float, Dynamic, 1> b;
+	Matrix<Float, Dynamic, 1> x;
 	SimplicialLDLT<SparseMatrix<Float>> solver;
 
 	function<Float(Float)> kai;
@@ -86,14 +86,14 @@ public:
 	{
 		for (int i = 1; i <= xGrids; i++)
 			for (int j = 0; j <= yGrids; j++)
-				muU(i, j) = 1 + kai((phiC(i, j) - phiC(i, j + 1)) / h);
+				muU(i, j) = 1 + kai(abs(phiC(i, j) - phiC(i, j + 1)) / h);
 		for (int i = 0; i <= xGrids; i++)
 			for (int j = 1; j <= yGrids; j++)
-				muR(i, j) = 1 + kai((phiC(i, j) - phiC(i + 1, j)) / h);
+				muR(i, j) = 1 + kai(abs(phiC(i, j) - phiC(i + 1, j)) / h);
 	}
 
 	Laplacian2D(Float _h, function<Float(Float)> _kai, Float phiTop, Float phiBottom, Float phiLeft, Float phiRight) :
-		h(_h), kai(_kai), A(xGrids * yGrids, xGrids * yGrids)
+		h(_h), kai(_kai), A(xGrids * yGrids, xGrids * yGrids), b(xGrids * yGrids), x(xGrids * yGrids)
 	{
 		for (int i = 1; i <= xGrids; i++)
 			phiC(i, yGrids + 1) = phiTop;
@@ -130,9 +130,10 @@ public:
 	}
 };
 
+Laplacian2D<double, 1000, 1000> T(1, [](double H)->double { return atan(H + 0.01) / (H + 0.01); }, 20, 10, 10, 10);
+
 int main()
 {
-	Laplacian2D<double, 30, 20> T(1, [](double H)->double { return atan(H + 0.01) / (H + 0.01); }, 20, 10, 10, 10);
 	T.Solve(1e-10);
 //	T.OutputInText();
 	return 0;
