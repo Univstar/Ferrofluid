@@ -22,6 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{04811258-D8F0-492A-8B99-2F75BDF643A3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,6 +71,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -100,11 +104,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\test\permeability.cpp" />
+    <ClCompile Include="source\geometry\FaceField.cpp" />
+    <ClCompile Include="source\geometry\Field.cpp" />
+    <ClCompile Include="source\geometry\MacGrid.cpp" />
+    <ClCompile Include="source\physics\Ferrofluid.cpp" />
+    <ClCompile Include="source\physics\FluidEuler.cpp" />
+    <ClCompile Include="source\test\class_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="source\test\electrostatic.py" />
-    <None Include="source\test\Laplacian.py" />
+    <ClInclude Include="source\common\constants.h" />
+    <ClInclude Include="source\geometry\FaceField.h" />
+    <ClInclude Include="source\geometry\Field.h" />
+    <ClInclude Include="source\geometry\MacGrid.h" />
+    <ClInclude Include="source\physics\Ferrofluid.h" />
+    <ClInclude Include="source\physics\FluidEuler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

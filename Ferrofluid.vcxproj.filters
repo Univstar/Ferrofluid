@@ -16,18 +16,63 @@
     <Filter Include="Source Files\Test Code">
       <UniqueIdentifier>{8563e2b3-2b47-4268-aeeb-af098ddcd85d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Physics Models">
+      <UniqueIdentifier>{f3931d90-7265-4040-984b-4d0f14981780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics Models">
+      <UniqueIdentifier>{10ef6d44-32ca-4cd8-9db9-fa175d860ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common Utils">
+      <UniqueIdentifier>{d0be7ebc-64ba-400d-a904-0e7a0c2ac913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Geometry Structures">
+      <UniqueIdentifier>{c6386b46-0e31-487d-8cfe-37ba7ff482d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common Utils">
+      <UniqueIdentifier>{fcf2e51c-1fc0-4a12-8d76-c37b7022e645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Geometry Structures">
+      <UniqueIdentifier>{d174b42e-2e5b-4dfd-add2-1a102bc99baf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\test\permeability.cpp">
+    <ClCompile Include="source\physics\FluidEuler.cpp">
+      <Filter>Source Files\Physics Models</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physics\Ferrofluid.cpp">
+      <Filter>Source Files\Physics Models</Filter>
+    </ClCompile>
+    <ClCompile Include="source\geometry\MacGrid.cpp">
+      <Filter>Source Files\Geometry Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="source\geometry\Field.cpp">
+      <Filter>Source Files\Geometry Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="source\geometry\FaceField.cpp">
+      <Filter>Source Files\Geometry Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="source\test\class_test.cpp">
       <Filter>Source Files\Test Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="source\test\electrostatic.py">
-      <Filter>Source Files\Test Code</Filter>
-    </None>
-    <None Include="source\test\Laplacian.py">
-      <Filter>Source Files\Test Code</Filter>
-    </None>
+    <ClInclude Include="source\physics\FluidEuler.h">
+      <Filter>Header Files\Physics Models</Filter>
+    </ClInclude>
+    <ClInclude Include="source\physics\Ferrofluid.h">
+      <Filter>Header Files\Physics Models</Filter>
+    </ClInclude>
+    <ClInclude Include="source\common\constants.h">
+      <Filter>Header Files\Common Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\geometry\MacGrid.h">
+      <Filter>Header Files\Geometry Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="source\geometry\Field.h">
+      <Filter>Header Files\Geometry Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="source\geometry\FaceField.h">
+      <Filter>Header Files\Geometry Structures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
